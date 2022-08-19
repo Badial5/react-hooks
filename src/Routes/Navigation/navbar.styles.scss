@@ -1,0 +1,35 @@
+//Keyframe
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  
+
+
+
+.navbar-container {
+    display: flex;
+    background-color: rgb(19, 114, 197);
+    height: 70px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.navbar-logo__container{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.navbar-logo {
+    border-radius: 30%;
+    height: 50px;
+    height: 50px;
+    animation: App-logo-spin infinite 20s linear;
+}
