@@ -1,45 +1,62 @@
-import React from 'react'
-import { useState } from 'react'
-
-
-//CSS
-import "./main.styles.scss"
-
+import React, {useState} from 'react'
+import { useEffect } from 'react'
 
 const Main = () => {
     //useState
-    const [state, setState] = useState(0)
+    //const [resource, setResource] = useState("posts")
 
-    // const {method} = state.method;
+    // const [items, setItems] = useState([])
 
-    //handlers
-    const decreaseButton = () => {
-        setState((prevCount) => prevCount - 1 )
-        // setState((prevState) => {
-        //     return ({count: prevState.count - 1}, {method: prevState.method = 'Minus'} )
-        // })
+
+    //modying the width of the window I have opened
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+    //useEffect
+
+    //the second parament 
+    // useEffect(() => {
+    //     fetch(`https://jsonplaceholder.typicode.com/${resource}`)
+    //     .then(response => response.json())
+    //     .then(json => setItems(json))
+    // }, [resource])
+
+
+    //seting the width
+
+    const handleResize = () => {
+        window.addEventListener(window.innerWidth)
     }
 
-    const increaseButton = () => {
-        setState((prevCount) => prevCount + 1 )
-    }
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+
+    }, [])
 
 
   return (
+    <>
+    <div>
+      {/* <button onClick={() => setResource('Posts')} >Posts</button>
+      <button onClick={() => setResource('Users')} >Users</button>
+      <button onClick={() => setResource('Comments')} >Comments</button> */}
 
-    <div className='container'>
-
-        <h1 className='title'>useState Hooks</h1>
-
-    <button onClick={decreaseButton} className="button-21" >-</button>
-        <span className='text-content' >{state} </span>
-    <button onClick={increaseButton} className="button-21" >+</button>
+      {windowWidth}
 
     </div>
 
+        {/* <h1>{resource}</h1>
+        {
+            items.map(item => {
+                return <pre>{JSON.stringify(item)}</pre>
+            })
+        } */}
 
-
-
+    </>
   )
 }
 
